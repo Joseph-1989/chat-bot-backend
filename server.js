@@ -4,7 +4,12 @@ const cors = require("cors");
 const app = express();
 const port = process.env.PORT || 5001;
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://rocketai-chat-bot.vercel.app", // Your Vercel frontend URL
+    methods: "GET,POST",
+  })
+);
 app.use(express.json());
 
 let chatMessages = [];
