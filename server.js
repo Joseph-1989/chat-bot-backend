@@ -15,10 +15,13 @@ app.post("/message", (req, res) => {
   chatMessages.push({ sender: "user", text: message });
 
   const responseMessage = message + " + Hello world!";
-
   chatMessages.push({ sender: "bot", text: responseMessage });
 
   res.json({ reply: responseMessage, messages: chatMessages });
+});
+
+app.get("/", (req, res) => {
+  res.send("Welcome to the chat bot server");
 });
 
 app.listen(port, () => {
